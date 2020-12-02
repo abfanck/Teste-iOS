@@ -8,6 +8,12 @@
 import UIKit
 
 class MainViewController: UIViewController {
-
+    
+    weak var coordinator: AppCoordinator?
+    
+    override func loadView() {
+        let view = MainView()
+        self.view = view
+    }
 
 }

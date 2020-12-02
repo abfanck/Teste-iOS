@@ -12,6 +12,9 @@
 		AAC404792578062900A72D56 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404782578062900A72D56 /* CoordinatorProtocol.swift */; };
 		AAC404822578076F00A72D56 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404812578076F00A72D56 /* DetailViewController.swift */; };
 		AAC4048C2578093000A72D56 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4048B2578093000A72D56 /* Event.swift */; };
+		AAC4049125780D0200A72D56 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4049025780D0200A72D56 /* ViewCodeProtocol.swift */; };
+		AAC4049A25780E8E00A72D56 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4049925780E8E00A72D56 /* MainView.swift */; };
+		AAC404AA257811C600A72D56 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404A9257811C600A72D56 /* EventCell.swift */; };
 		AAF109992576B802001B78EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF109982576B802001B78EC /* AppDelegate.swift */; };
 		AAF1099B2576B802001B78EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF1099A2576B802001B78EC /* SceneDelegate.swift */; };
 		AAF1099D2576B802001B78EC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF1099C2576B802001B78EC /* MainViewController.swift */; };
@@ -43,6 +46,9 @@
 		AAC404782578062900A72D56 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		AAC404812578076F00A72D56 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AAC4048B2578093000A72D56 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		AAC4049025780D0200A72D56 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
+		AAC4049925780E8E00A72D56 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		AAC404A9257811C600A72D56 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		AAF109952576B802001B78EC /* Teste-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Teste-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAF109982576B802001B78EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAF1099A2576B802001B78EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +115,8 @@
 			children = (
 				AAF1099C2576B802001B78EC /* MainViewController.swift */,
 				AAC404812578076F00A72D56 /* DetailViewController.swift */,
+				AAC4049925780E8E00A72D56 /* MainView.swift */,
+				AAC404A9257811C600A72D56 /* EventCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -119,6 +127,14 @@
 				AAC4048B2578093000A72D56 /* Event.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		AAC4049525780D8000A72D56 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				AAC4049025780D0200A72D56 /* ViewCodeProtocol.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		AAF1098C2576B802001B78EC = {
@@ -149,6 +165,7 @@
 				AAC4048A2578092400A72D56 /* Model */,
 				AAC404862578078A00A72D56 /* View */,
 				AAC4047D2578073A00A72D56 /* Coordinator */,
+				AAC4049525780D8000A72D56 /* Support */,
 				AAF109982576B802001B78EC /* AppDelegate.swift */,
 				AAF1099A2576B802001B78EC /* SceneDelegate.swift */,
 				AAF109A12576B804001B78EC /* Assets.xcassets */,
@@ -359,6 +376,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAC404712578060D00A72D56 /* AppCoordinator.swift in Sources */,
+				AAC4049A25780E8E00A72D56 /* MainView.swift in Sources */,
+				AAC404AA257811C600A72D56 /* EventCell.swift in Sources */,
+				AAC4049125780D0200A72D56 /* ViewCodeProtocol.swift in Sources */,
 				AAF1099D2576B802001B78EC /* MainViewController.swift in Sources */,
 				AAC404792578062900A72D56 /* CoordinatorProtocol.swift in Sources */,
 				AAC404822578076F00A72D56 /* DetailViewController.swift in Sources */,
