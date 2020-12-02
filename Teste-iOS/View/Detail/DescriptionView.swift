@@ -10,14 +10,14 @@ import UIKit
 class DescriptionView: UIView {
     
     // MARK: - Variable(s)
-    lazy var descriptionLabel: UILabel = {
+    lazy private var descriptionLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         view.text = "Descrição"
         return view
     }()
     
-    lazy var descriptionInfoLabel: UILabel = {
+    lazy private var descriptionInfoLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         view.numberOfLines = 0
@@ -63,7 +63,7 @@ class DescriptionView: UIView {
         return view
     }()
     
-    lazy var vStack: UIStackView = {
+    lazy private var vStack: UIStackView = {
         let view = UIStackView(frame: .zero)
         view.axis = .vertical
         view.alignment = .leading

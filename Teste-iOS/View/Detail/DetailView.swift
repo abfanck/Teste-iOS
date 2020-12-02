@@ -9,12 +9,12 @@ import UIKit
 
 class DetailView: UIView {
     
-    lazy var dateView = DateView()
-    lazy var descriptionView = DescriptionView()
-    lazy var locationView = LocationView()
-    lazy var priceView = PriceView()
+    lazy private var dateView = DateView()
+    lazy private var descriptionView = DescriptionView()
+    lazy private var locationView = LocationView()
+    lazy private var priceView = PriceView()
     
-    lazy var imageView: UIImageView = {
+    lazy private var imageView: UIImageView = {
         let view = UIImageView(frame: .zero)
         view.image = UIImage(systemName: "photo.fill")
         view.contentMode = .scaleAspectFill
@@ -22,19 +22,19 @@ class DetailView: UIView {
         return view
     }()
     
-    lazy var scrollView: UIScrollView = {
+    lazy private var scrollView: UIScrollView = {
         let view = UIScrollView(frame: bounds)
         return view
     }()
     
-    lazy var overallVStack: UIStackView = {
+    lazy private var overallVStack: UIStackView = {
         let view = UIStackView(frame: .zero)
         view.axis = .vertical
         view.alignment = .center
         return view
     }()
     
-    lazy var infoVStack: UIStackView = {
+    lazy private var infoVStack: UIStackView = {
         let view = UIStackView(frame: .zero)
         view.axis = .vertical
         view.alignment = .leading
@@ -42,7 +42,7 @@ class DetailView: UIView {
         return view
     }()
     
-    lazy var dateAndPriceVStack: UIStackView = {
+    lazy private var dateAndPriceVStack: UIStackView = {
         let view = UIStackView(frame: .zero)
         view.axis = .vertical
         view.alignment = .leading

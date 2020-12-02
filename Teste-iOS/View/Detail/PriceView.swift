@@ -10,21 +10,21 @@ import UIKit
 class PriceView: UIView {
     
     // MARK: - Variable(s)
-    lazy var priceLabel: UILabel = {
+    lazy private var priceLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         view.text = "Preço: "
         return view
     }()
     
-    lazy var priceInfoLabel: UILabel = {
+    lazy private var priceInfoLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         view.text = "R$ 7,00"
         return view
     }()
     
-    lazy var hStack: UIStackView = {
+    lazy private var hStack: UIStackView = {
         let view = UIStackView(frame: .zero)
         view.axis = .horizontal
         view.alignment = .center

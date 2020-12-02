@@ -11,21 +11,21 @@ class LocationView: UIView {
     
     // MARK: - Variable(s)
     
-    lazy var locationLabel: UILabel = {
+    lazy private var locationLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         view.text = "Localização: "
         return view
     }()
     
-    lazy var locationInfoLabel: UILabel = {
+    lazy private var locationInfoLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         view.text = "Parque Farroupilha"
         return view
     }()
     
-    lazy var hStack: UIStackView = {
+    lazy private var hStack: UIStackView = {
         let view = UIStackView(frame: .zero)
         view.axis = .horizontal
         view.alignment = .center

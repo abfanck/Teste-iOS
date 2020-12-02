@@ -9,22 +9,27 @@ import UIKit
 
 class EventCell: UITableViewCell {
     
-    // MARK: - Variable(s)
+    // MARK: - Data Variable(s)
+    var eventTitle: String?
+    var imageName: String?
     
-    lazy var eventImageView: UIImageView = {
+    // MARK: - UI Variable(s)
+    
+    lazy private var eventImageView: UIImageView = {
         let view = UIImageView(frame: .zero)
-        view.image = UIImage(systemName: "photo.fill")
+        view.image = UIImage(systemName: imageName ?? "photo.fill")
         view.contentMode = .scaleAspectFit
         return view
     }()
     
-    lazy var eventLabel: UILabel = {
+    lazy private var eventLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
+        view.text = eventTitle ?? "No Name"
         return view
     }()
     
-    lazy var hStack: UIStackView = {
+    lazy private var hStack: UIStackView = {
         let view = UIStackView(frame: .zero)
         view.axis = .horizontal
         view.alignment = .center
@@ -48,7 +53,6 @@ extension EventCell: ViewCode {
         hStack.addArrangedSubview(eventImageView)
         hStack.addArrangedSubview(eventLabel)
         contentView.addSubview(hStack)
-        //addSubview(hStack)
     }
     
     func setupConstraints() {

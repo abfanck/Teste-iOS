@@ -10,49 +10,49 @@ import UIKit
 class DateView: UIView {
     
     // MARK: - Variable(s)
-    lazy var dayLabel: UILabel = {
+    lazy private var dayLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         view.text = "Dia: "
         return view
     }()
     
-    lazy var dayInfoLabel: UILabel = {
+    lazy private var dayInfoLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         view.text = "18/12/2020"
         return view
     }()
     
-    lazy var timeLabel: UILabel = {
+    lazy private var timeLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         view.text = "Horário: "
         return view
     }()
     
-    lazy var timeInfoLabel: UILabel = {
+    lazy private var timeInfoLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         view.text = "17:30"
         return view
     }()
     
-    lazy var dayHStack: UIStackView = {
+    lazy private var dayHStack: UIStackView = {
         let view = UIStackView(frame: .zero)
         view.axis = .horizontal
         view.alignment = .leading
         return view
     }()
     
-    lazy var timeHStack: UIStackView = {
+    lazy private var timeHStack: UIStackView = {
         let view = UIStackView(frame: .zero)
         view.axis = .horizontal
         view.alignment = .leading
         return view
     }()
     
-    lazy var overallHStack: UIStackView = {
+    lazy private var overallHStack: UIStackView = {
         let view = UIStackView(frame: .zero)
         view.axis = .horizontal
         view.alignment = .leading
