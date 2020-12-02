@@ -11,6 +11,7 @@
 		AAC404712578060D00A72D56 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404702578060D00A72D56 /* AppCoordinator.swift */; };
 		AAC404792578062900A72D56 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404782578062900A72D56 /* CoordinatorProtocol.swift */; };
 		AAC404822578076F00A72D56 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404812578076F00A72D56 /* DetailViewController.swift */; };
+		AAC4048C2578093000A72D56 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4048B2578093000A72D56 /* Event.swift */; };
 		AAF109992576B802001B78EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF109982576B802001B78EC /* AppDelegate.swift */; };
 		AAF1099B2576B802001B78EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF1099A2576B802001B78EC /* SceneDelegate.swift */; };
 		AAF1099D2576B802001B78EC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF1099C2576B802001B78EC /* MainViewController.swift */; };
@@ -41,6 +42,7 @@
 		AAC404702578060D00A72D56 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		AAC404782578062900A72D56 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		AAC404812578076F00A72D56 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		AAC4048B2578093000A72D56 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		AAF109952576B802001B78EC /* Teste-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Teste-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAF109982576B802001B78EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAF1099A2576B802001B78EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		AAC4048A2578092400A72D56 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AAC4048B2578093000A72D56 /* Event.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		AAF1098C2576B802001B78EC = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +146,7 @@
 		AAF109972576B802001B78EC /* Teste-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				AAC4048A2578092400A72D56 /* Model */,
 				AAC404862578078A00A72D56 /* View */,
 				AAC4047D2578073A00A72D56 /* Coordinator */,
 				AAF109982576B802001B78EC /* AppDelegate.swift */,
@@ -352,6 +363,7 @@
 				AAC404792578062900A72D56 /* CoordinatorProtocol.swift in Sources */,
 				AAC404822578076F00A72D56 /* DetailViewController.swift in Sources */,
 				AAF109992576B802001B78EC /* AppDelegate.swift in Sources */,
+				AAC4048C2578093000A72D56 /* Event.swift in Sources */,
 				AAF1099B2576B802001B78EC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
