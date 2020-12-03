@@ -25,6 +25,12 @@ class MainViewController: UIViewController {
         return view
     }()
     
+    lazy private var indicator: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView(style: .large)
+        view.startAnimating()
+        return view
+    }()
+    
     override func loadView() {
         setupView()
         bindTableView()
@@ -44,6 +50,17 @@ class MainViewController: UIViewController {
             .subscribe(onNext: { event in
                 self.coordinator?.showDetail(with: event.title)
             }).disposed(by: bag)
+        
+        viewModel.isReady
+            .subscribe(
+                onNext: { isReady in
+                    if isReady {
+                        self.indicator.stopAnimating()
+                        self.indicator.removeFromSuperview()
+                    }
+                })
+            .disposed(by: bag)
+            
     }
 
 }
@@ -52,11 +69,16 @@ extension MainViewController: ViewCode {
     func buildViewHierarchy() {
         view = UIView(frame: .zero)
         view.addSubview(tableView)
+        view.addSubview(indicator)
     }
     
     func setupConstraints() {
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(view.safeAreaLayoutGuide.snp.edges)
+        }
+        
+        indicator.snp.makeConstraints { (make) in
+            make.center.equalTo(view.safeAreaLayoutGuide.snp.center)
         }
     }
     
