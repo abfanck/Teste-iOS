@@ -6,13 +6,40 @@
 //
 
 import UIKit
+import RxSwift
 
 class DetailView: UIView {
     
-    lazy private var dateView = DateView()
-    lazy private var descriptionView = DescriptionView()
-    lazy private var locationView = LocationView()
-    lazy private var priceView = PriceView()
+    // MARK: - Variable(s)
+    
+    private var viewModel: DetailViewModel
+    private let bag = DisposeBag()
+    
+    
+    // MARK: - UI Variable(s)
+    
+    lazy private var dateView: DateView = {
+        let viewModel = DateViewModel(date: self.viewModel.date)
+        let view = DateView(viewModel: viewModel)
+        return view
+    }()
+    
+    lazy private var descriptionView: DescriptionView = {
+        let view = DescriptionView(description: self.viewModel.description)
+        return view
+    }()
+    
+    lazy private var locationView: LocationView = {
+        let viewModel = LocationViewModel(latitude: self.viewModel.latitude, longitude: self.viewModel.longitude)
+        let view = LocationView(viewModel: viewModel)
+        return view
+    }()
+    
+    lazy private var priceView: PriceView = {
+        let viewModel = PriceViewModel(price: self.viewModel.price)
+        let view = PriceView(viewModel: viewModel)
+        return view
+    }()
     
     lazy private var imageView: UIImageView = {
         let view = UIImageView(frame: .zero)
@@ -42,6 +69,14 @@ class DetailView: UIView {
         return view
     }()
     
+    lazy private var localHStack: UIStackView = {
+        let view = UIStackView(frame: .zero)
+        view.axis = .horizontal
+        view.alignment = .leading
+        view.spacing = 12
+        return view
+    }()
+    
     lazy private var dateAndPriceVStack: UIStackView = {
         let view = UIStackView(frame: .zero)
         view.axis = .vertical
@@ -50,24 +85,44 @@ class DetailView: UIView {
         return view
     }()
     
+    
     // MARK: - Init(s)
-    override init(frame: CGRect = .zero) {
+    
+    init(frame: CGRect = .zero, viewModel: DetailViewModel) {
+        self.viewModel = viewModel
         super.init(frame: frame)
         setupView()
+        bindData()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
+    // MARK: - Binding Data with UI
+    
+    func bindData() {
+        viewModel.imageSubject
+            .subscribe(
+                onNext: { (data) in
+                    if let data = data {
+                        self.imageView.image = UIImage(data: data)
+                    }
+                }).disposed(by: bag)
+    }
 }
 
+
 // MARK: - View Code Extension
+
 extension DetailView: ViewCode {
     func buildViewHierarchy() {
         dateAndPriceVStack.addArrangedSubview(dateView)
         dateAndPriceVStack.addArrangedSubview(priceView)
-        dateAndPriceVStack.addArrangedSubview(locationView)
-        infoVStack.addArrangedSubview(dateAndPriceVStack)
+        localHStack.addArrangedSubview(dateAndPriceVStack)
+        localHStack.addArrangedSubview(locationView)
+        infoVStack.addArrangedSubview(localHStack)
         infoVStack.addArrangedSubview(descriptionView)
         overallVStack.addArrangedSubview(imageView)
         overallVStack.addArrangedSubview(infoVStack)
@@ -81,9 +136,11 @@ extension DetailView: ViewCode {
         }
         
         overallVStack.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+            make.top.equalToSuperview()
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+            make.bottom.equalToSuperview().inset(25)
             make.width.equalTo(snp.width)
-            make.height.greaterThanOrEqualTo(snp.height)
         }
         
         imageView.snp.makeConstraints { (make) in
@@ -95,6 +152,11 @@ extension DetailView: ViewCode {
             make.left.equalToSuperview().offset(25)
             make.right.equalToSuperview().inset(25)
         }
+        
+        localHStack.snp.makeConstraints { (make) in
+            make.left.equalToSuperview()
+            make.right.equalToSuperview()
+        }
     }
     
     func additionalConfigurations() {
@@ -102,6 +164,7 @@ extension DetailView: ViewCode {
         scrollView.backgroundColor = .orange
         infoVStack.backgroundColor = .white
         imageView.backgroundColor = .red
+        localHStack.backgroundColor = .darkGray
     }
 }
 

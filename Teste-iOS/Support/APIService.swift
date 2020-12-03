@@ -24,13 +24,15 @@ final class APIService {
     
     public func getDataFrom(url: URL) -> Observable<Data?> {
         return Observable.create { (observer) in
-            do {
-                let data = try Data(contentsOf: url)
-                observer.onNext(data)
-            } catch {
-                observer.onNext(nil)
+            DispatchQueue.global(qos: .background).async {
+                do {
+                    let data = try Data(contentsOf: url)
+                    observer.onNext(data)
+                } catch {
+                    observer.onNext(nil)
+                }
+                observer.onCompleted()
             }
-            observer.onCompleted()
             return Disposables.create()
         }
     }

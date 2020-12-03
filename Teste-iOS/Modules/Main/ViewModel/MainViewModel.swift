@@ -10,23 +10,30 @@ import RxSwift
 
 class MainViewModel {
     
+    // MARK: - Public Varible(s)
+    
+    var events: Observable<[Event]> = Observable.empty()
+    var isReady = BehaviorSubject<Bool>(value: false)
+    
+    
+    // MARK: - Private Variable(s)
+    
     private var apiService = APIService.shared
-    private var bag = DisposeBag()
-    public var events: Observable<[Event]> = Observable.empty()
-    public var isReady = BehaviorSubject<Bool>(value: false)
+    private let bag = DisposeBag()
+    
+    
+    // MARK: - Init
     
     init() {
-        events = apiService.getEvents()
-    }
-    
-    func getImageData(from url: URL) -> Observable<Data?> {
-        let observableData = apiService.getDataFrom(url: url).filter({ $0 != nil })
+        let eventsObservable = apiService.getEvents()
         
-        observableData
-            .subscribe(onCompleted: {
-                self.isReady.onNext(true)
-            }).disposed(by: bag)
+        self.events = eventsObservable
         
-        return observableData
+        eventsObservable
+            .subscribe(
+                onCompleted: {
+                    self.isReady.onNext(true)
+                })
+            .disposed(by: bag)
     }
 }

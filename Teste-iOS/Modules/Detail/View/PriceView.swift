@@ -6,10 +6,18 @@
 //
 
 import UIKit
+import RxSwift
 
 class PriceView: UIView {
     
     // MARK: - Variable(s)
+    
+    var viewModel: PriceViewModel
+    private let bag = DisposeBag()
+    
+    
+    // MARK: - UI Variable(s)
+    
     lazy private var priceLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
@@ -20,7 +28,6 @@ class PriceView: UIView {
     lazy private var priceInfoLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        view.text = "R$ 7,00"
         return view
     }()
     
@@ -31,18 +38,33 @@ class PriceView: UIView {
         return view
     }()
     
+    
     // MARK: - Init(s)
-    override init(frame: CGRect = .zero) {
+    
+    init(frame: CGRect = .zero, viewModel: PriceViewModel) {
+        self.viewModel = viewModel
         super.init(frame: frame)
         setupView()
+        bindData()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
+    // MARK: - Binding Data with UI
+    
+    func bindData()  {
+        viewModel.priceFormatted
+            .bind(to: priceInfoLabel.rx.text)
+            .disposed(by: bag)
+    }
 }
 
+
 // MARK: - View Code Extension
+
 extension PriceView: ViewCode {
     func buildViewHierarchy() {
         hStack.addArrangedSubview(priceLabel)
@@ -60,4 +82,3 @@ extension PriceView: ViewCode {
         
     }
 }
-

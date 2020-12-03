@@ -10,6 +10,11 @@ import UIKit
 class DescriptionView: UIView {
     
     // MARK: - Variable(s)
+    var eventDescription: String
+    
+    
+    // MARK: - UI Variable(s)
+    
     lazy private var descriptionLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
@@ -22,44 +27,7 @@ class DescriptionView: UIView {
         view.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         view.numberOfLines = 0
         view.textAlignment = .justified
-        view.text = """
-            djasdjalksjdjasdjakdjlakjdkasldjaskldjaskldjaskldjas
-            djasdjalksjdjasdjakdjlakjdkasldjaskldjaskldjaskldjas
-            djasdjalksjdjasdjakdjlakjdkasldjaskldjaskldjaskldjas
-            djasdjalksjdjasdjakdjlakjdkasldjaskldjaskldjaskldjas
-            djasdjalksjdjasdjakdjlakjdkasldjaskldjaskldjaskldjas
-            djasdjalksjdjasdjakdjlakjdkasldjaskldjaskldjaskldjas
-            djasdjalksjdjasdjakdjlakjdkasldjaskldjaskldjaskldjas
-            djasdjalksj akdjlak skldjaskldjaskldjas
-            djasdjalksjdjasdjakdjlakjdkasldjaskldjaskldjaskldjas
-            djasdjalksjd asdjakdjlakjdkasldjas djaskldjaskldjas
-            djasdjalksjdjasdjakdjl askldjaskldjaskldjas
-            djasdjalksjdjasdjakdjlakjdkasldjaskldjaskldjaskldjas
-            djasdjalksjdjasdjakdjlakjdkasldj skldjaskldjas
-            djasdjalksjdjasdjakd askldjaskldjaskldjas
-            djasdjalksjdjasdjakdjlakjdkasldjaskldjaskldjaskldjas
-            djas sjdjasdja akjdkasldj askldjaskldjas
-            djasdjalksjdjasdjakdjlakjdkasldjaskldjaskldjaskldjas
-            djasd asdjakdjlakjdkasldjaskldjaskldjaskldjas
-            djasdjalksjdjasd lakjdkasld ldjaskld askldjas
-            djasdjalksj jakdjlakjdk askldjaskldjas
-            djasdjalksjdjasdjakdjlakjdkasldjaskldjaskldjaskldjas
-            djasdjalksjdjasdjakdjlakjdkasldjaskldjaskldjaskldjas
-            djasdjalksjdjasdjakdjlak djaskldjaskldjaskldjas
-            djasdjalk jasdjakdjlakjdkasldjaskldjaskldjaskldjas
-            djasdjalksjdjasdjakdjlakjdkasldjaskldjaskldjaskldjas
-            djasdjalksjdjasdjakdjlakjdkasldjaskldjaskldjaskldjas
-            djasdjalksjdjasdjakdjlak skldjaskldjaskldjas
-            djasdjal jlakjdka jaskldj djask djas
-            djasdjalk asdjak akjdkasldjaskldjaskld kldjas
-            djasdjalksjdjasdjakdjlakj ldjaskldjas
-            djasdjalksjdjasdjakdjlakjdkasldjaskldjaskldjaskldjas
-            djasdjalksjdjasdjakdjlakjdkasldjaskldjaskldjaskldjas
-            djasdjalksjdjas askldjaskldjaskldjas
-            djasdjalk akjdkasldjaskldjas kldjas
-            djasd sjdjas akd dkasldj kldjaskldjas
-            djasdjalksjdjasdj sldjaskldjaskldjaskldjas
-            """
+        view.text = eventDescription
         return view
     }()
     
@@ -71,8 +39,11 @@ class DescriptionView: UIView {
         return view
     }()
     
+    
     // MARK: - Init(s)
-    override init(frame: CGRect = .zero) {
+    
+    init(frame: CGRect = .zero, description: String) {
+        self.eventDescription = description
         super.init(frame: frame)
         setupView()
     }
@@ -82,7 +53,9 @@ class DescriptionView: UIView {
     }
 }
 
+
 // MARK: - View Code Extension
+
 extension DescriptionView: ViewCode {
     func buildViewHierarchy() {
         vStack.addArrangedSubview(descriptionLabel)

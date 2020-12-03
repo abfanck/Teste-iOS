@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		3F8761AC43AD9C33EA75F9EF /* Pods_Teste_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71083E1F8E00B31ACFFCFEB /* Pods_Teste_iOS.framework */; };
+		AA87B44325795C2C00F9BC47 /* DateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B44225795C2C00F9BC47 /* DateViewModel.swift */; };
+		AA87B44C25795D8100F9BC47 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B44B25795D8100F9BC47 /* LocationViewModel.swift */; };
+		AA87B45925795EB600F9BC47 /* PriceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B45825795EB600F9BC47 /* PriceViewModel.swift */; };
+		AA87B47525797A0100F9BC47 /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B47425797A0100F9BC47 /* EventViewModel.swift */; };
 		AAC404712578060D00A72D56 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404702578060D00A72D56 /* AppCoordinator.swift */; };
 		AAC404792578062900A72D56 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404782578062900A72D56 /* CoordinatorProtocol.swift */; };
 		AAC404822578076F00A72D56 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404812578076F00A72D56 /* DetailViewController.swift */; };
 		AAC4048C2578093000A72D56 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4048B2578093000A72D56 /* Event.swift */; };
 		AAC4049125780D0200A72D56 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4049025780D0200A72D56 /* ViewCodeProtocol.swift */; };
-		AAC404AA257811C600A72D56 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404A9257811C600A72D56 /* EventCell.swift */; };
+		AAC404AA257811C600A72D56 /* EventViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404A9257811C600A72D56 /* EventViewCell.swift */; };
 		AAC404B7257822A400A72D56 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404B6257822A400A72D56 /* DetailView.swift */; };
 		AAC404BC257824A700A72D56 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404BB257824A700A72D56 /* DateView.swift */; };
 		AAC404C12578275A00A72D56 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404C02578275A00A72D56 /* LocationView.swift */; };
@@ -21,6 +25,7 @@
 		AAC404CB2578444300A72D56 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404CA2578444300A72D56 /* DescriptionView.swift */; };
 		AAC404D0257851D400A72D56 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404CF257851D400A72D56 /* APIService.swift */; };
 		AAC404D52578884C00A72D56 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404D42578884C00A72D56 /* MainViewModel.swift */; };
+		AAC404E02579454300A72D56 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404DF2579454300A72D56 /* DetailViewModel.swift */; };
 		AAF109992576B802001B78EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF109982576B802001B78EC /* AppDelegate.swift */; };
 		AAF1099B2576B802001B78EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF1099A2576B802001B78EC /* SceneDelegate.swift */; };
 		AAF1099D2576B802001B78EC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF1099C2576B802001B78EC /* MainViewController.swift */; };
@@ -48,12 +53,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AA87B44225795C2C00F9BC47 /* DateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateViewModel.swift; sourceTree = "<group>"; };
+		AA87B44B25795D8100F9BC47 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		AA87B45825795EB600F9BC47 /* PriceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceViewModel.swift; sourceTree = "<group>"; };
+		AA87B47425797A0100F9BC47 /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
 		AAC404702578060D00A72D56 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		AAC404782578062900A72D56 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		AAC404812578076F00A72D56 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AAC4048B2578093000A72D56 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		AAC4049025780D0200A72D56 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
-		AAC404A9257811C600A72D56 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		AAC404A9257811C600A72D56 /* EventViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewCell.swift; sourceTree = "<group>"; };
 		AAC404B6257822A400A72D56 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		AAC404BB257824A700A72D56 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
 		AAC404C02578275A00A72D56 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
@@ -61,6 +70,7 @@
 		AAC404CA2578444300A72D56 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		AAC404CF257851D400A72D56 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		AAC404D42578884C00A72D56 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		AAC404DF2579454300A72D56 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		AAF109952576B802001B78EC /* Teste-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Teste-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAF109982576B802001B78EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAF1099A2576B802001B78EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,15 +132,6 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		AAC404862578078A00A72D56 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				AAC404AE2578228B00A72D56 /* Main */,
-				AAC404B22578229300A72D56 /* Detail */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		AAC4048A2578092400A72D56 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,9 +152,8 @@
 		AAC404AE2578228B00A72D56 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				AAF1099C2576B802001B78EC /* MainViewController.swift */,
-				AAC404A9257811C600A72D56 /* EventCell.swift */,
-				AAC404D42578884C00A72D56 /* MainViewModel.swift */,
+				AAC404E82579463200A72D56 /* View */,
+				AAC404EC2579463C00A72D56 /* ViewModel */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -161,14 +161,61 @@
 		AAC404B22578229300A72D56 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				AAC404F02579464D00A72D56 /* View */,
+				AAC404F42579465F00A72D56 /* ViewModel */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		AAC404E42579460700A72D56 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				AAC404AE2578228B00A72D56 /* Main */,
+				AAC404B22578229300A72D56 /* Detail */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		AAC404E82579463200A72D56 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AAF1099C2576B802001B78EC /* MainViewController.swift */,
+				AAC404A9257811C600A72D56 /* EventViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AAC404EC2579463C00A72D56 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AAC404D42578884C00A72D56 /* MainViewModel.swift */,
+				AA87B47425797A0100F9BC47 /* EventViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AAC404F02579464D00A72D56 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				AAC404812578076F00A72D56 /* DetailViewController.swift */,
 				AAC404B6257822A400A72D56 /* DetailView.swift */,
 				AAC404BB257824A700A72D56 /* DateView.swift */,
+				AAC404CA2578444300A72D56 /* DescriptionView.swift */,
 				AAC404C02578275A00A72D56 /* LocationView.swift */,
 				AAC404C5257828D300A72D56 /* PriceView.swift */,
-				AAC404CA2578444300A72D56 /* DescriptionView.swift */,
 			);
-			path = Detail;
+			path = View;
+			sourceTree = "<group>";
+		};
+		AAC404F42579465F00A72D56 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AAC404DF2579454300A72D56 /* DetailViewModel.swift */,
+				AA87B44225795C2C00F9BC47 /* DateViewModel.swift */,
+				AA87B44B25795D8100F9BC47 /* LocationViewModel.swift */,
+				AA87B45825795EB600F9BC47 /* PriceViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		AAF1098C2576B802001B78EC = {
@@ -196,9 +243,9 @@
 		AAF109972576B802001B78EC /* Teste-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				AAC4048A2578092400A72D56 /* Model */,
-				AAC404862578078A00A72D56 /* View */,
 				AAC4047D2578073A00A72D56 /* Coordinator */,
+				AAC4048A2578092400A72D56 /* Model */,
+				AAC404E42579460700A72D56 /* Modules */,
 				AAC4049525780D8000A72D56 /* Support */,
 				AAF109982576B802001B78EC /* AppDelegate.swift */,
 				AAF1099A2576B802001B78EC /* SceneDelegate.swift */,
@@ -409,13 +456,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAC404E02579454300A72D56 /* DetailViewModel.swift in Sources */,
 				AAC404C12578275A00A72D56 /* LocationView.swift in Sources */,
 				AAC404712578060D00A72D56 /* AppCoordinator.swift in Sources */,
-				AAC404AA257811C600A72D56 /* EventCell.swift in Sources */,
+				AA87B44C25795D8100F9BC47 /* LocationViewModel.swift in Sources */,
+				AAC404AA257811C600A72D56 /* EventViewCell.swift in Sources */,
 				AAC4049125780D0200A72D56 /* ViewCodeProtocol.swift in Sources */,
 				AAF1099D2576B802001B78EC /* MainViewController.swift in Sources */,
+				AA87B44325795C2C00F9BC47 /* DateViewModel.swift in Sources */,
 				AAC404D0257851D400A72D56 /* APIService.swift in Sources */,
 				AAC404B7257822A400A72D56 /* DetailView.swift in Sources */,
+				AA87B45925795EB600F9BC47 /* PriceViewModel.swift in Sources */,
 				AAC404D52578884C00A72D56 /* MainViewModel.swift in Sources */,
 				AAC404BC257824A700A72D56 /* DateView.swift in Sources */,
 				AAC404C6257828D300A72D56 /* PriceView.swift in Sources */,
@@ -424,6 +475,7 @@
 				AAC404822578076F00A72D56 /* DetailViewController.swift in Sources */,
 				AAF109992576B802001B78EC /* AppDelegate.swift in Sources */,
 				AAC4048C2578093000A72D56 /* Event.swift in Sources */,
+				AA87B47525797A0100F9BC47 /* EventViewModel.swift in Sources */,
 				AAF1099B2576B802001B78EC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

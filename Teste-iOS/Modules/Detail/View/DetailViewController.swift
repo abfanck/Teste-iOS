@@ -13,7 +13,7 @@ class DetailViewController: UIViewController {
     var viewModel: DetailViewModel!
     
     override func loadView() {
-        let view = DetailView()
+        let view = DetailView(viewModel: viewModel)
         self.view = view
     }
 }

@@ -6,13 +6,18 @@
 //
 
 import UIKit
+import RxSwift
 
 class DateView: UIView {
     
     // MARK: - Variable(s)
-    var viewModel: DateViewModel!
+    
+    var viewModel: DateViewModel
+    private var bag = DisposeBag()
+    
     
     // MARK: - UI Variable(s)
+    
     lazy private var dayLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
@@ -53,44 +58,63 @@ class DateView: UIView {
         return view
     }()
     
-    lazy private var overallHStack: UIStackView = {
+    lazy private var overallVStack: UIStackView = {
         let view = UIStackView(frame: .zero)
-        view.axis = .horizontal
+        view.axis = .vertical
         view.alignment = .leading
-        view.spacing = 18
+        view.spacing = 6
         return view
     }()
     
+    
     // MARK: - Init(s)
-    override init(frame: CGRect = .zero) {
+    
+    init(frame: CGRect = .zero, viewModel: DateViewModel) {
+        self.viewModel = viewModel
         super.init(frame: frame)
         setupView()
+        bindData()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
+    // MARK: - Binding Data with UI
+    
+    func bindData() {
+        viewModel.dayFormatted
+            .bind(to: dayInfoLabel.rx.text)
+            .disposed(by: bag)
+        
+        viewModel.timeFormatted
+            .bind(to: timeInfoLabel.rx.text)
+            .disposed(by: bag)
+    }
 }
 
+
 // MARK: - View Code Extension
+
 extension DateView: ViewCode {
     func buildViewHierarchy() {
         dayHStack.addArrangedSubview(dayLabel)
         dayHStack.addArrangedSubview(dayInfoLabel)
         timeHStack.addArrangedSubview(timeLabel)
         timeHStack.addArrangedSubview(timeInfoLabel)
-        overallHStack.addArrangedSubview(dayHStack)
-        overallHStack.addArrangedSubview(timeHStack)
-        addSubview(overallHStack)
+        overallVStack.addArrangedSubview(dayHStack)
+        overallVStack.addArrangedSubview(timeHStack)
+        addSubview(overallVStack)
     }
     
     func setupConstraints() {
-        overallHStack.snp_makeConstraints { (make) in
+        overallVStack.snp_makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
         
         timeInfoLabel.snp.makeConstraints { (make) in
-            make.trailing.equalTo(overallHStack.snp.trailing)
+            make.trailing.equalTo(overallVStack.snp.trailing)
         }
     }
     

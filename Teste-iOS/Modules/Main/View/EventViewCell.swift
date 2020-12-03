@@ -6,31 +6,33 @@
 //
 
 import UIKit
+import RxSwift
 
 class EventViewCell: UITableViewCell {
     
-    // MARK: - Data Variable(s)
-    var viewModel:
-    var eventTitle: String? {
+    // MARK: - Variable(s)
+    
+    private let bag = DisposeBag()
+    
+    var viewModel: EventViewModel? {
         didSet {
-            eventLabel.text = eventTitle
-        }
-    }
-    var imageData: Data? {
-        didSet {
-            if let data = imageData {
-                eventImageView.image = UIImage(data: data)
-                eventImageView.backgroundColor = .clear
-            }
+            bindData()
         }
     }
     
+    
     // MARK: - UI Variable(s)
+    
+    lazy private var indicatorView: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView(style: .medium)
+        view.startAnimating()
+        return view
+    }()
+    
     lazy private var eventImageView: UIImageView = {
         let view = UIImageView(frame: .zero)
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
-        view.backgroundColor = .darkGray
         return view
     }()
     
@@ -49,7 +51,9 @@ class EventViewCell: UITableViewCell {
         return view
     }()
     
+    
     // MARK: - Init(s)
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
@@ -58,11 +62,44 @@ class EventViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
+    // MARK: - Binding Data with UI
+    
+    func bindData() {
+        viewModel?.titleSubject
+            .bind(to: eventLabel.rx.text)
+            .disposed(by: bag)
+        
+        viewModel?.imageSubject
+            .subscribe(
+                onNext: { data in
+                    if let data = data {
+                        self.eventImageView.image = UIImage(data: data)
+                        self.eventImageView.backgroundColor = .clear
+                    }
+                })
+            .disposed(by: bag)
+        
+        viewModel?.isReady
+            .subscribe(
+                onNext: { (isReady) in
+                    if isReady {
+                        self.indicatorView.stopAnimating()
+                        self.indicatorView.removeFromSuperview()
+                        self.eventImageView.backgroundColor = .darkGray
+                    }
+            })
+            .disposed(by: bag)
+    }
 }
 
+
 // MARK: - View Code Extension
+
 extension EventViewCell: ViewCode {
     func buildViewHierarchy() {
+        eventImageView.addSubview(indicatorView)
         hStack.addArrangedSubview(eventImageView)
         hStack.addArrangedSubview(eventLabel)
         contentView.addSubview(hStack)
@@ -80,6 +117,10 @@ extension EventViewCell: ViewCode {
         eventImageView.snp.makeConstraints { (make) in
             make.height.equalTo(100)
             make.width.equalTo(eventImageView.snp.height).multipliedBy(1.2)
+        }
+        
+        indicatorView.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
         }
     }
     
