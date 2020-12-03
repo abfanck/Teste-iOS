@@ -7,9 +7,10 @@
 
 import UIKit
 
-class EventCell: UITableViewCell {
+class EventViewCell: UITableViewCell {
     
     // MARK: - Data Variable(s)
+    var viewModel:
     var eventTitle: String? {
         didSet {
             eventLabel.text = eventTitle
@@ -60,7 +61,7 @@ class EventCell: UITableViewCell {
 }
 
 // MARK: - View Code Extension
-extension EventCell: ViewCode {
+extension EventViewCell: ViewCode {
     func buildViewHierarchy() {
         hStack.addArrangedSubview(eventImageView)
         hStack.addArrangedSubview(eventLabel)

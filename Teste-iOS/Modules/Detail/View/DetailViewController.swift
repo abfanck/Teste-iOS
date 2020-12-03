@@ -10,6 +10,7 @@ import UIKit
 class DetailViewController: UIViewController {
     
     weak var coordinator: AppCoordinator?
+    var viewModel: DetailViewModel!
     
     override func loadView() {
         let view = DetailView()

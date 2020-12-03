@@ -10,6 +10,9 @@ import UIKit
 class DateView: UIView {
     
     // MARK: - Variable(s)
+    var viewModel: DateViewModel!
+    
+    // MARK: - UI Variable(s)
     lazy private var dayLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
@@ -20,7 +23,6 @@ class DateView: UIView {
     lazy private var dayInfoLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        view.text = "18/12/2020"
         return view
     }()
     
@@ -34,7 +36,6 @@ class DateView: UIView {
     lazy private var timeInfoLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        view.text = "17:30"
         return view
     }()
     
