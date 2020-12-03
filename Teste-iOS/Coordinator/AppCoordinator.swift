@@ -23,10 +23,10 @@ class AppCoordinator: Coordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    func showDetail() {
+    func showDetail(with title: String) {
         let viewController = DetailViewController()
         viewController.coordinator = self
-        viewController.title = "Nome do Evento"
+        viewController.title = title
         navigationController.pushViewController(viewController, animated: true)
     }
 }

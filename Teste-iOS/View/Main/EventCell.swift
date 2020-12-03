@@ -10,22 +10,29 @@ import UIKit
 class EventCell: UITableViewCell {
     
     // MARK: - Data Variable(s)
-    var eventTitle: String?
-    var imageName: String?
+    var eventTitle: String? {
+        didSet {
+            eventLabel.text = eventTitle
+        }
+    }
+    var imageData: Data? {
+        didSet {
+            eventImageView.image = UIImage(data: imageData!)
+        }
+    }
     
     // MARK: - UI Variable(s)
-    
     lazy private var eventImageView: UIImageView = {
         let view = UIImageView(frame: .zero)
-        view.image = UIImage(systemName: imageName ?? "photo.fill")
-        view.contentMode = .scaleAspectFit
+        view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
         return view
     }()
     
     lazy private var eventLabel: UILabel = {
         let view = UILabel(frame: .zero)
         view.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-        view.text = eventTitle ?? "No Name"
+        view.numberOfLines = 0
         return view
     }()
     
@@ -33,6 +40,7 @@ class EventCell: UITableViewCell {
         let view = UIStackView(frame: .zero)
         view.axis = .horizontal
         view.alignment = .center
+        view.spacing = 10
         return view
     }()
     
@@ -71,7 +79,8 @@ extension EventCell: ViewCode {
     }
     
     func additionalConfigurations() {
-        hStack.backgroundColor = .orange
+        self.selectionStyle = .none
+        hStack.backgroundColor = .systemFill
         hStack.layer.cornerRadius = 18
         hStack.clipsToBounds = true
     }
