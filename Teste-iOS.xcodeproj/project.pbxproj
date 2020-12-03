@@ -13,7 +13,6 @@
 		AAC404822578076F00A72D56 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404812578076F00A72D56 /* DetailViewController.swift */; };
 		AAC4048C2578093000A72D56 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4048B2578093000A72D56 /* Event.swift */; };
 		AAC4049125780D0200A72D56 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4049025780D0200A72D56 /* ViewCodeProtocol.swift */; };
-		AAC4049A25780E8E00A72D56 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4049925780E8E00A72D56 /* MainView.swift */; };
 		AAC404AA257811C600A72D56 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404A9257811C600A72D56 /* EventCell.swift */; };
 		AAC404B7257822A400A72D56 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404B6257822A400A72D56 /* DetailView.swift */; };
 		AAC404BC257824A700A72D56 /* DateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404BB257824A700A72D56 /* DateView.swift */; };
@@ -54,7 +53,6 @@
 		AAC404812578076F00A72D56 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		AAC4048B2578093000A72D56 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		AAC4049025780D0200A72D56 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
-		AAC4049925780E8E00A72D56 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		AAC404A9257811C600A72D56 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		AAC404B6257822A400A72D56 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		AAC404BB257824A700A72D56 /* DateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateView.swift; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 			isa = PBXGroup;
 			children = (
 				AAF1099C2576B802001B78EC /* MainViewController.swift */,
-				AAC4049925780E8E00A72D56 /* MainView.swift */,
 				AAC404A9257811C600A72D56 /* EventCell.swift */,
 				AAC404D42578884C00A72D56 /* MainViewModel.swift */,
 			);
@@ -414,7 +411,6 @@
 			files = (
 				AAC404C12578275A00A72D56 /* LocationView.swift in Sources */,
 				AAC404712578060D00A72D56 /* AppCoordinator.swift in Sources */,
-				AAC4049A25780E8E00A72D56 /* MainView.swift in Sources */,
 				AAC404AA257811C600A72D56 /* EventCell.swift in Sources */,
 				AAC4049125780D0200A72D56 /* ViewCodeProtocol.swift in Sources */,
 				AAF1099D2576B802001B78EC /* MainViewController.swift in Sources */,

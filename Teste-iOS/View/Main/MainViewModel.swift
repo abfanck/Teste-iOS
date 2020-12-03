@@ -11,7 +11,6 @@ import RxSwift
 class MainViewModel {
     
     private var apiService = APIService.shared
-    
     private var bag = DisposeBag()
     public var events: Observable<[Event]> = Observable.empty()
     

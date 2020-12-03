@@ -17,7 +17,9 @@ class AppCoordinator: Coordinator {
     }
     
     func start() {
+        let viewModel = MainViewModel()
         let viewController = MainViewController()
+        viewController.viewModel = viewModel
         viewController.coordinator = self
         viewController.title = "Eventos"
         navigationController.pushViewController(viewController, animated: true)
@@ -27,6 +29,7 @@ class AppCoordinator: Coordinator {
         let viewController = DetailViewController()
         viewController.coordinator = self
         viewController.title = title
+        viewController.navigationItem.largeTitleDisplayMode = .never
         navigationController.pushViewController(viewController, animated: true)
     }
 }
