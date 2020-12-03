@@ -19,8 +19,8 @@ class MainViewModel {
         events = apiService.getEvents()
     }
     
-    func getImageData(from url: URL) -> Observable<Data> {
-        let observableData = apiService.getDataFrom(url: url).catchAndReturn(Data())
+    func getImageData(from url: URL) -> Observable<Data?> {
+        let observableData = apiService.getDataFrom(url: url).filter({ $0 != nil })
         
         observableData
             .subscribe(onCompleted: {

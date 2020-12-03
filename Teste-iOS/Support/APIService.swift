@@ -22,15 +22,15 @@ final class APIService {
     public static let shared = APIService()
     private let baseURL = URL(string: "http://5f5a8f24d44d640016169133.mockapi.io/api")
     
-    public func getDataFrom(url: URL) -> Observable<Data> {
+    public func getDataFrom(url: URL) -> Observable<Data?> {
         return Observable.create { (observer) in
             do {
                 let data = try Data(contentsOf: url)
                 observer.onNext(data)
-                observer.onCompleted()
             } catch {
-                observer.onError(error)
+                observer.onNext(nil)
             }
+            observer.onCompleted()
             return Disposables.create()
         }
     }
@@ -83,10 +83,11 @@ final class APIService {
                     return
                 }
                 
-                do {
-                    let events: [Event] = try self.parseData(data)
+                let decodeResult: Result<[Event],Error> = self.parseData(data)
+                switch decodeResult {
+                case .success(let events):
                     completion(.success(events))
-                } catch {
+                case .failure(let error):
                     completion(.failure(error))
                 }
             }
@@ -94,12 +95,12 @@ final class APIService {
         task.resume()
     }
     
-    private func parseData<DataType: Decodable>(_ data: Data) throws -> DataType {
+    private func parseData<DataType: Decodable>(_ data: Data) -> Result<DataType,Error> {
         do {
             let decodedData = try JSONDecoder().decode(DataType.self, from: data)
-            return decodedData
+            return .success(decodedData)
         } catch {
-            throw error
+            return .failure(error)
         }
     }
 }

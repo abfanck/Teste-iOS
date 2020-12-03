@@ -17,7 +17,10 @@ class EventCell: UITableViewCell {
     }
     var imageData: Data? {
         didSet {
-            eventImageView.image = UIImage(data: imageData!)
+            if let data = imageData {
+                eventImageView.image = UIImage(data: data)
+                eventImageView.backgroundColor = .clear
+            }
         }
     }
     
@@ -26,6 +29,7 @@ class EventCell: UITableViewCell {
         let view = UIImageView(frame: .zero)
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
+        view.backgroundColor = .darkGray
         return view
     }()
     
