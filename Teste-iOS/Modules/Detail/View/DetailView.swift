@@ -16,6 +16,11 @@ class DetailView: UIView {
     
     // MARK: - UI Variable(s)
     
+    lazy private var checkInView: CheckInView = {
+        let view = CheckInView(showAlert: viewModel.showAlert)
+        return view
+    }()
+    
     lazy private var dateView: DateView = {
         let viewModel = DateViewModel(date: self.viewModel.date)
         let view = DateView(viewModel: viewModel)
@@ -105,6 +110,7 @@ extension DetailView: ViewCode {
         localHStack.addArrangedSubview(dateAndPriceVStack)
         localHStack.addArrangedSubview(locationView)
         infoVStack.addArrangedSubview(localHStack)
+        infoVStack.addArrangedSubview(checkInView)
         infoVStack.addArrangedSubview(descriptionView)
         overallVStack.addArrangedSubview(imageView)
         overallVStack.addArrangedSubview(infoVStack)

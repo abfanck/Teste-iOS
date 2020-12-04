@@ -17,6 +17,11 @@ class DetailViewModel {
     var imageURL = PublishSubject<URL>()
     var coordinates = PublishSubject<(latitude: Float, longitude: Float)>()
     var price = PublishSubject<Float>()
+    var showAlert = BehaviorSubject<Bool>(value: false)
+    
+    var eventDescription: String = ""
+    var eventId: String = ""
+    var eventTitle: String = ""
     
     // MARK: - Private Variable(s)
     
@@ -28,6 +33,9 @@ class DetailViewModel {
         self.getEvent(with: eventId)
     }
     
+    
+    // MARK: - API Request
+    
     func getEvent(with id: String)  {
         APIService.getEvent(with: id) { (result) in
             switch result {
@@ -37,10 +45,29 @@ class DetailViewModel {
                 self.imageURL.onNext(event.imageURL)
                 self.coordinates.onNext((latitude: event.latitude, longitude: event.longitude))
                 self.price.onNext(event.price)
+                self.eventDescription = event.description
+                self.eventId = event.id
+                self.eventTitle = event.title
             case .failure(let error):
                 print(error)
             }
         }
+    }
+    
+    
+    // MARK: - Data Transformation
+    
+    func convertToData(name: String, email: String) -> Result<Data,Error> {
+        var dict: [String: String] = [:]
+        dict.updateValue(eventId, forKey: "eventId")
+        dict.updateValue(name, forKey: "name")
+        dict.updateValue(email, forKey: "email")
         
+        do {
+            let encondedData = try JSONSerialization.data(withJSONObject: dict)
+            return .success(encondedData)
+        } catch {
+            return .failure(error)
+        }
     }
 }

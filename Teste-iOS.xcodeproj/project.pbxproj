@@ -28,6 +28,7 @@
 		AAC404D0257851D400A72D56 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404CF257851D400A72D56 /* APIService.swift */; };
 		AAC404D52578884C00A72D56 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404D42578884C00A72D56 /* MainViewModel.swift */; };
 		AAC404E02579454300A72D56 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404DF2579454300A72D56 /* DetailViewModel.swift */; };
+		AACA6ECB2579F68500448CCB /* CheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACA6ECA2579F68500448CCB /* CheckInView.swift */; };
 		AAF109992576B802001B78EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF109982576B802001B78EC /* AppDelegate.swift */; };
 		AAF1099B2576B802001B78EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF1099A2576B802001B78EC /* SceneDelegate.swift */; };
 		AAF1099D2576B802001B78EC /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF1099C2576B802001B78EC /* MainViewController.swift */; };
@@ -75,6 +76,7 @@
 		AAC404CF257851D400A72D56 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		AAC404D42578884C00A72D56 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		AAC404DF2579454300A72D56 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		AACA6ECA2579F68500448CCB /* CheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInView.swift; sourceTree = "<group>"; };
 		AAF109952576B802001B78EC /* Teste-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Teste-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAF109982576B802001B78EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAF1099A2576B802001B78EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				AAC404C02578275A00A72D56 /* LocationView.swift */,
 				AAC404C5257828D300A72D56 /* PriceView.swift */,
 				AA87B4792579A6C200F9BC47 /* EventImageView.swift */,
+				AACA6ECA2579F68500448CCB /* CheckInView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				AAC404822578076F00A72D56 /* DetailViewController.swift in Sources */,
 				AA87B47A2579A6C200F9BC47 /* EventImageView.swift in Sources */,
 				AAF109992576B802001B78EC /* AppDelegate.swift in Sources */,
+				AACA6ECB2579F68500448CCB /* CheckInView.swift in Sources */,
 				AAC4048C2578093000A72D56 /* Evento.swift in Sources */,
 				AA87B47525797A0100F9BC47 /* EventViewModel.swift in Sources */,
 				AAF1099B2576B802001B78EC /* SceneDelegate.swift in Sources */,

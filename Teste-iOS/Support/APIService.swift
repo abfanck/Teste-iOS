@@ -20,15 +20,21 @@ enum NetworkError: String, Error {
 
 final class APIService {
     
-    public static func saveCheckIn(_ data: Data) {
+    public static func saveCheckIn(_ data: Data, completion: @escaping (Error?) -> Void) {
         let baseURL = URL(string: "http://5f5a8f24d44d640016169133.mockapi.io/api")
         let url = URL(string: "/checkin", relativeTo: baseURL)!
-        let request = URLRequest(url: url)
-        let task = URLSession.shared.uploadTask(with: request, from: data) { (data, response, error) in
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = data
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
-                print(error)
-            } else if let urlResponse = response as? HTTPURLResponse {
-                print(urlResponse.statusCode)
+                completion(error)
+            } else if let urlResponse = response as? HTTPURLResponse, !(200...299).contains(urlResponse.statusCode) {
+                completion(NetworkError.badRequest)
+            } else if let _ = data {
+                completion(nil)
             }
         }
         task.resume()
