@@ -18,14 +18,13 @@ class MainViewModel {
     
     // MARK: - Private Variable(s)
     
-    private let apiService = APIService.shared
     private let bag = DisposeBag()
     
     
     // MARK: - Init
     
     init() {
-        let eventsObservable = apiService.getEvents()
+        let eventsObservable = APIService.getEvents()
         
         self.events = eventsObservable
         

@@ -17,7 +17,6 @@ class EventImageViewModel {
     
     // MARK: - Private Variable(s)
     
-    private let apiService = APIService.shared
     private let bag = DisposeBag()
     
     
@@ -36,7 +35,7 @@ class EventImageViewModel {
     // MARK: - API Request
     
     func getImageData(from url: URL) {
-        apiService.getDataFrom(url: url)
+        APIService.getDataFrom(url: url)
             .subscribe(
                 onNext: { data in
                     DispatchQueue.main.async {

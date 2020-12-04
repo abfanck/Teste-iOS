@@ -20,7 +20,6 @@ class DetailViewModel {
     
     // MARK: - Private Variable(s)
     
-    private let apiService = APIService.shared
     private let bag = DisposeBag()
     
     // MARK: - Init
@@ -30,7 +29,7 @@ class DetailViewModel {
     }
     
     func getEvent(with id: String)  {
-        apiService.getEvent(with: id) { (result) in
+        APIService.getEvent(with: id) { (result) in
             switch result {
             case .success(let event):
                 self.date.onNext(event.date)
