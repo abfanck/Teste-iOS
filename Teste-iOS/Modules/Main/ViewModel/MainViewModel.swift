@@ -12,13 +12,13 @@ class MainViewModel {
     
     // MARK: - Public Varible(s)
     
-    var events: Observable<[Event]> = Observable.empty()
+    var events: Observable<[Evento]> = Observable.empty()
     var isReady = BehaviorSubject<Bool>(value: false)
     
     
     // MARK: - Private Variable(s)
     
-    private var apiService = APIService.shared
+    private let apiService = APIService.shared
     private let bag = DisposeBag()
     
     

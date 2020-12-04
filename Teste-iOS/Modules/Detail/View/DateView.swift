@@ -13,7 +13,7 @@ class DateView: UIView {
     // MARK: - Variable(s)
     
     var viewModel: DateViewModel
-    private var bag = DisposeBag()
+    private let bag = DisposeBag()
     
     
     // MARK: - UI Variable(s)

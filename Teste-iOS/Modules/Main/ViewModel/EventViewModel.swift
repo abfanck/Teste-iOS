@@ -18,9 +18,9 @@ class EventViewModel {
     
     // MARK: - Private Variable(s)
     
-    private var apiService = APIService.shared
+    private let apiService = APIService.shared
     private let bag = DisposeBag()
-    private var imageURL: URL
+    private let imageURL: URL
     
     
     // MARK: - Init

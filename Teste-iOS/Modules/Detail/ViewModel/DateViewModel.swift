@@ -18,21 +18,25 @@ class DateViewModel {
     
     // MARK: - Private Variable(s)
     
-    private var date: Date
+    private let bag = DisposeBag()
     
     
     // MARK: - Init
     
-    init(date: Date) {
-        self.date = date
-        self.formatDay()
-        self.formatTime()
+    init(date: PublishSubject<Date>) {
+        date
+            .subscribe(
+                onNext: { (date) in
+                    self.formatDay(from: date)
+                    self.formatTime(from: date)
+                })
+            .disposed(by: bag)
     }
     
     
     // MARK: - Formating Function(s)
     
-    private func formatDay() {
+    private func formatDay(from date: Date) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .short
         dateFormatter.timeStyle = .none
@@ -41,7 +45,7 @@ class DateViewModel {
         self.dayFormatted.onNext(day)
     }
     
-    private func formatTime() {
+    private func formatTime(from date: Date) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .none
         dateFormatter.timeStyle = .short

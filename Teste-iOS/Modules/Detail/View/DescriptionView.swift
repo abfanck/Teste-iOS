@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import RxSwift
 
 class DescriptionView: UIView {
     
     // MARK: - Variable(s)
-    var eventDescription: String
+    
+    private let bag = DisposeBag()
+    private var eventDescription: PublishSubject<String>
     
     
     // MARK: - UI Variable(s)
@@ -27,7 +30,6 @@ class DescriptionView: UIView {
         view.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         view.numberOfLines = 0
         view.textAlignment = .justified
-        view.text = eventDescription
         return view
     }()
     
@@ -42,14 +44,23 @@ class DescriptionView: UIView {
     
     // MARK: - Init(s)
     
-    init(frame: CGRect = .zero, description: String) {
+    init(frame: CGRect = .zero, description: PublishSubject<String>) {
         self.eventDescription = description
         super.init(frame: frame)
         setupView()
+        bindData()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - Binding Data with UI
+    
+    func bindData() {
+        self.eventDescription
+            .bind(to: descriptionInfoLabel.rx.text)
+            .disposed(by: bag)
     }
 }
 

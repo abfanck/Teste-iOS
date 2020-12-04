@@ -19,23 +19,24 @@ class LocationViewModel {
     //MARK: - Private Variable(s)
     
     private let bag = DisposeBag()
-    private var latitude: Float
-    private var longitude: Float
     
     
     // MARK: - Init
     
-    init(latitude: Float, longitude: Float) {
-        self.latitude = latitude
-        self.longitude = longitude
-        self.formatLocation()
+    init(coordinates: PublishSubject<(latitude: Float, longitude: Float)>) {
+        coordinates
+            .subscribe(
+                onNext: { (coordinates) in
+                    self.formatLocation(from: coordinates)
+                })
+            .disposed(by: bag)
     }
     
     
     // MARK: - Formating Function(s)
     
-    private func formatLocation() {
-        self.findLocationWithCoordinates()
+    private func formatLocation(from coordinates: (latitude: Float, longitude: Float)) {
+        self.findLocation(with: coordinates)
             .subscribe(
                 onNext: { placemark in
                     
@@ -52,10 +53,10 @@ class LocationViewModel {
     
     // MARK: - CoreLocation Function(s)
     
-    private func findLocationWithCoordinates() -> Observable<CLPlacemark> {
+    private func findLocation(with coordinates: (latitude: Float, longitude: Float)) -> Observable<CLPlacemark> {
         return Observable<CLPlacemark>.create { (observer) in
-            if let latitude = CLLocationDegrees(exactly: self.latitude),
-               let longitude = CLLocationDegrees(exactly: self.longitude) {
+            if let latitude = CLLocationDegrees(exactly: coordinates.latitude),
+               let longitude = CLLocationDegrees(exactly: coordinates.longitude) {
                 
                 let location = CLLocation(latitude: latitude, longitude: longitude)
                 CLGeocoder().reverseGeocodeLocation(location) { (placemarks, error) in

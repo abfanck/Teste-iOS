@@ -24,11 +24,11 @@ class AppCoordinator: Coordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    func showDetail(for event: Event) {
+    func showDetailForEvent(withId id: String, title: String) {
         let viewController = DetailViewController()
-        viewController.viewModel = DetailViewModel(event: event)
+        viewController.viewModel = DetailViewModel(eventId: id)
         viewController.coordinator = self
-        viewController.title = event.title
+        viewController.title = title
         viewController.navigationItem.largeTitleDisplayMode = .never
         navigationController.pushViewController(viewController, animated: true)
     }

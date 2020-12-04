@@ -37,7 +37,14 @@ final class APIService {
         }
     }
     
-    public func getEvents() -> Observable<[Event]> {
+    public func getEvent(with id:String, completion: @escaping (Result<Evento,Error>) -> Void) {
+        let url = URL(string: "/events/\(id)", relativeTo: baseURL)!
+        createDataTask(with: url, dataType: Evento.self) { (result) in
+            completion(result)
+        }
+    }
+    
+    public func getEvents() -> Observable<[Evento]> {
         return Observable.create { [weak self] (observer) in
             
             self?.getEventList(completion: { (result) in
@@ -56,7 +63,7 @@ final class APIService {
         }
     }
     
-    private func getEventList(completion: @escaping (Result<[Event],Error>) -> Void) {
+    private func getEventList(completion: @escaping (Result<[Evento],Error>) -> Void) {
         let url = URL(string: "/events", relativeTo: baseURL)!
         
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -85,7 +92,7 @@ final class APIService {
                     return
                 }
                 
-                let decodeResult: Result<[Event],Error> = self.parseData(data)
+                let decodeResult: Result<[Evento],Error> = self.parseData(data)
                 switch decodeResult {
                 case .success(let events):
                     completion(.success(events))
@@ -104,5 +111,46 @@ final class APIService {
         } catch {
             return .failure(error)
         }
+    }
+    
+    private func createDataTask<ResultType: Decodable>(with url: URL,
+                                                       dataType: ResultType.Type,
+                                                       completion: @escaping (Result<ResultType,Error>) -> Void) {
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+            if let error = error {
+                completion(.failure(error))
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                
+                switch httpResponse.statusCode {
+                case 200...299:
+                    break
+                case 401...500:
+                    completion(.failure(NetworkError.authenticationError))
+                case 501...599:
+                    completion(.failure(NetworkError.badRequest))
+                case 600:
+                    completion(.failure(NetworkError.outdated))
+                default:
+                    completion(.failure(NetworkError.failed))
+                }
+                
+                guard let data = data else {
+                    completion(.failure(NetworkError.noData))
+                    return
+                }
+                
+                let decodeResult: Result<ResultType,Error> = self.parseData(data)
+                switch decodeResult {
+                case .success(let events):
+                    completion(.success(events))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
+            }
+        }
+        task.resume()
     }
 }

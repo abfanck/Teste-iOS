@@ -51,10 +51,10 @@ class MainViewController: UIViewController {
             }
             .disposed(by: bag)
         
-        tableView.rx.modelSelected(Event.self)
+        tableView.rx.modelSelected(Evento.self)
             .subscribe(
                 onNext: { event in
-                    self.coordinator?.showDetail(for: event)
+                    self.coordinator?.showDetailForEvent(withId: event.id, title: event.title)
             })
             .disposed(by: bag)
         

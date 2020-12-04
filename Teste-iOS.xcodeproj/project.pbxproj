@@ -17,7 +17,7 @@
 		AAC404712578060D00A72D56 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404702578060D00A72D56 /* AppCoordinator.swift */; };
 		AAC404792578062900A72D56 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404782578062900A72D56 /* CoordinatorProtocol.swift */; };
 		AAC404822578076F00A72D56 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404812578076F00A72D56 /* DetailViewController.swift */; };
-		AAC4048C2578093000A72D56 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4048B2578093000A72D56 /* Event.swift */; };
+		AAC4048C2578093000A72D56 /* Evento.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4048B2578093000A72D56 /* Evento.swift */; };
 		AAC4049125780D0200A72D56 /* ViewCodeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC4049025780D0200A72D56 /* ViewCodeProtocol.swift */; };
 		AAC404AA257811C600A72D56 /* EventViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404A9257811C600A72D56 /* EventViewCell.swift */; };
 		AAC404B7257822A400A72D56 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404B6257822A400A72D56 /* DetailView.swift */; };
@@ -64,7 +64,7 @@
 		AAC404702578060D00A72D56 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		AAC404782578062900A72D56 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		AAC404812578076F00A72D56 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		AAC4048B2578093000A72D56 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		AAC4048B2578093000A72D56 /* Evento.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Evento.swift; sourceTree = "<group>"; };
 		AAC4049025780D0200A72D56 /* ViewCodeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeProtocol.swift; sourceTree = "<group>"; };
 		AAC404A9257811C600A72D56 /* EventViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewCell.swift; sourceTree = "<group>"; };
 		AAC404B6257822A400A72D56 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 		AAC4048A2578092400A72D56 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AAC4048B2578093000A72D56 /* Event.swift */,
+				AAC4048B2578093000A72D56 /* Evento.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -482,7 +482,7 @@
 				AAC404822578076F00A72D56 /* DetailViewController.swift in Sources */,
 				AA87B47A2579A6C200F9BC47 /* EventImageView.swift in Sources */,
 				AAF109992576B802001B78EC /* AppDelegate.swift in Sources */,
-				AAC4048C2578093000A72D56 /* Event.swift in Sources */,
+				AAC4048C2578093000A72D56 /* Evento.swift in Sources */,
 				AA87B47525797A0100F9BC47 /* EventViewModel.swift in Sources */,
 				AAF1099B2576B802001B78EC /* SceneDelegate.swift in Sources */,
 			);

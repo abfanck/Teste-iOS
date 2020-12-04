@@ -19,21 +19,24 @@ class EventImageViewModel {
     
     private let apiService = APIService.shared
     private let bag = DisposeBag()
-    private let imageURL: URL
     
     
     // MARK: - Init
     
-    init(imageURL: URL) {
-        self.imageURL = imageURL
-        getImageData()
+    init(imageURL: PublishSubject<URL>) {
+        imageURL
+            .subscribe(
+                onNext: { (url) in
+                    self.getImageData(from: url)
+                })
+            .disposed(by: bag)
     }
     
     
     // MARK: - API Request
     
-    func getImageData() {
-        apiService.getDataFrom(url: imageURL)
+    func getImageData(from url: URL) {
+        apiService.getDataFrom(url: url)
             .subscribe(
                 onNext: { data in
                     DispatchQueue.main.async {

@@ -17,21 +17,25 @@ class PriceViewModel {
     
     // MARK: - Private Variable(s)
     
-    private var price: Float
+    private let bag = DisposeBag()
     
     
     // MARK: - Init
     
-    init(price: Float) {
-        self.price = price
-        self.formatPrice()
+    init(price: PublishSubject<Float>) {
+        price
+            .subscribe(
+                onNext: { (price) in
+                    self.formatPrice(price)
+                })
+            .disposed(by: bag)
     }
     
     
     // MARK: - Formating Function(s)
     
-    func formatPrice() {
-        let price: String = String(format: "R$ %.2f", self.price).replacingOccurrences(of: ".", with: ",")
-        self.priceFormatted.onNext(price)
+    func formatPrice(_ price: Float) {
+        let formatted = String(format: "R$ %.2f", price).replacingOccurrences(of: ".", with: ",")
+        self.priceFormatted.onNext(formatted)
     }
 }

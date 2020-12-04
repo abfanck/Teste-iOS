@@ -11,7 +11,7 @@ class DetailView: UIView {
     
     // MARK: - Variable(s)
     
-    private var viewModel: DetailViewModel
+    private let viewModel: DetailViewModel
     
     
     // MARK: - UI Variable(s)
@@ -28,7 +28,7 @@ class DetailView: UIView {
     }()
     
     lazy private var locationView: LocationView = {
-        let viewModel = LocationViewModel(latitude: self.viewModel.latitude, longitude: self.viewModel.longitude)
+        let viewModel = LocationViewModel(coordinates: self.viewModel.coordinates)
         let view = LocationView(viewModel: viewModel)
         return view
     }()
