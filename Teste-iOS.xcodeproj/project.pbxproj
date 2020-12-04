@@ -12,6 +12,8 @@
 		AA87B44C25795D8100F9BC47 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B44B25795D8100F9BC47 /* LocationViewModel.swift */; };
 		AA87B45925795EB600F9BC47 /* PriceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B45825795EB600F9BC47 /* PriceViewModel.swift */; };
 		AA87B47525797A0100F9BC47 /* EventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B47425797A0100F9BC47 /* EventViewModel.swift */; };
+		AA87B47A2579A6C200F9BC47 /* EventImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B4792579A6C200F9BC47 /* EventImageView.swift */; };
+		AA87B47F2579A88100F9BC47 /* EventImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA87B47E2579A88100F9BC47 /* EventImageViewModel.swift */; };
 		AAC404712578060D00A72D56 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404702578060D00A72D56 /* AppCoordinator.swift */; };
 		AAC404792578062900A72D56 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404782578062900A72D56 /* CoordinatorProtocol.swift */; };
 		AAC404822578076F00A72D56 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC404812578076F00A72D56 /* DetailViewController.swift */; };
@@ -57,6 +59,8 @@
 		AA87B44B25795D8100F9BC47 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 		AA87B45825795EB600F9BC47 /* PriceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceViewModel.swift; sourceTree = "<group>"; };
 		AA87B47425797A0100F9BC47 /* EventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventViewModel.swift; sourceTree = "<group>"; };
+		AA87B4792579A6C200F9BC47 /* EventImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventImageView.swift; sourceTree = "<group>"; };
+		AA87B47E2579A88100F9BC47 /* EventImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventImageViewModel.swift; sourceTree = "<group>"; };
 		AAC404702578060D00A72D56 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		AAC404782578062900A72D56 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		AAC404812578076F00A72D56 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +207,7 @@
 				AAC404CA2578444300A72D56 /* DescriptionView.swift */,
 				AAC404C02578275A00A72D56 /* LocationView.swift */,
 				AAC404C5257828D300A72D56 /* PriceView.swift */,
+				AA87B4792579A6C200F9BC47 /* EventImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,6 +219,7 @@
 				AA87B44225795C2C00F9BC47 /* DateViewModel.swift */,
 				AA87B44B25795D8100F9BC47 /* LocationViewModel.swift */,
 				AA87B45825795EB600F9BC47 /* PriceViewModel.swift */,
+				AA87B47E2579A88100F9BC47 /* EventImageViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -461,6 +467,7 @@
 				AAC404712578060D00A72D56 /* AppCoordinator.swift in Sources */,
 				AA87B44C25795D8100F9BC47 /* LocationViewModel.swift in Sources */,
 				AAC404AA257811C600A72D56 /* EventViewCell.swift in Sources */,
+				AA87B47F2579A88100F9BC47 /* EventImageViewModel.swift in Sources */,
 				AAC4049125780D0200A72D56 /* ViewCodeProtocol.swift in Sources */,
 				AAF1099D2576B802001B78EC /* MainViewController.swift in Sources */,
 				AA87B44325795C2C00F9BC47 /* DateViewModel.swift in Sources */,
@@ -473,6 +480,7 @@
 				AAC404CB2578444300A72D56 /* DescriptionView.swift in Sources */,
 				AAC404792578062900A72D56 /* CoordinatorProtocol.swift in Sources */,
 				AAC404822578076F00A72D56 /* DetailViewController.swift in Sources */,
+				AA87B47A2579A6C200F9BC47 /* EventImageView.swift in Sources */,
 				AAF109992576B802001B78EC /* AppDelegate.swift in Sources */,
 				AAC4048C2578093000A72D56 /* Event.swift in Sources */,
 				AA87B47525797A0100F9BC47 /* EventViewModel.swift in Sources */,

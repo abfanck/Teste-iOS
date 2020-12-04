@@ -78,18 +78,14 @@ class EventViewCell: UITableViewCell {
                         self.eventImageView.image = UIImage(data: data)
                         self.eventImageView.backgroundColor = .clear
                     }
+                },
+                onError: { (_) in
+                    self.eventImageView.backgroundColor = .darkGray
+                },
+                onDisposed: {
+                    self.indicatorView.stopAnimating()
+                    self.indicatorView.removeFromSuperview()
                 })
-            .disposed(by: bag)
-        
-        viewModel?.isReady
-            .subscribe(
-                onNext: { (isReady) in
-                    if isReady {
-                        self.indicatorView.stopAnimating()
-                        self.indicatorView.removeFromSuperview()
-                        self.eventImageView.backgroundColor = .darkGray
-                    }
-            })
             .disposed(by: bag)
     }
 }

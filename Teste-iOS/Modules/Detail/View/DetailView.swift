@@ -6,14 +6,12 @@
 //
 
 import UIKit
-import RxSwift
 
 class DetailView: UIView {
     
     // MARK: - Variable(s)
     
     private var viewModel: DetailViewModel
-    private let bag = DisposeBag()
     
     
     // MARK: - UI Variable(s)
@@ -41,11 +39,9 @@ class DetailView: UIView {
         return view
     }()
     
-    lazy private var imageView: UIImageView = {
-        let view = UIImageView(frame: .zero)
-        view.image = UIImage(systemName: "photo.fill")
-        view.contentMode = .scaleAspectFill
-        view.clipsToBounds = true
+    lazy private var imageView: EventImageView = {
+        let viewModel = EventImageViewModel(imageURL: self.viewModel.imageURL)
+        let view = EventImageView(viewModel: viewModel)
         return view
     }()
     
@@ -92,24 +88,10 @@ class DetailView: UIView {
         self.viewModel = viewModel
         super.init(frame: frame)
         setupView()
-        bindData()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    
-    // MARK: - Binding Data with UI
-    
-    func bindData() {
-        viewModel.imageSubject
-            .subscribe(
-                onNext: { (data) in
-                    if let data = data {
-                        self.imageView.image = UIImage(data: data)
-                    }
-                }).disposed(by: bag)
     }
 }
 
@@ -160,11 +142,7 @@ extension DetailView: ViewCode {
     }
     
     func additionalConfigurations() {
-        backgroundColor = .white
-        scrollView.backgroundColor = .orange
-        infoVStack.backgroundColor = .white
-        imageView.backgroundColor = .red
-        localHStack.backgroundColor = .darkGray
+        backgroundColor = .secondarySystemBackground
     }
 }
 

@@ -22,16 +22,16 @@ final class APIService {
     public static let shared = APIService()
     private let baseURL = URL(string: "http://5f5a8f24d44d640016169133.mockapi.io/api")
     
-    public func getDataFrom(url: URL) -> Observable<Data?> {
+    public func getDataFrom(url: URL) -> Observable<Data> {
         return Observable.create { (observer) in
             DispatchQueue.global(qos: .background).async {
                 do {
                     let data = try Data(contentsOf: url)
                     observer.onNext(data)
+                    observer.onCompleted()
                 } catch {
-                    observer.onNext(nil)
+                    observer.onError(error)
                 }
-                observer.onCompleted()
             }
             return Disposables.create()
         }

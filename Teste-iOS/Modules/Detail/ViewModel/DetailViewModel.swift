@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RxSwift
 
 class DetailViewModel {
     
@@ -18,6 +17,10 @@ class DetailViewModel {
     
     var description: String {
         event.description
+    }
+    
+    var imageURL: URL {
+        event.imageURL
     }
     
     var latitude: Float {
@@ -32,34 +35,13 @@ class DetailViewModel {
         event.price
     }
     
-    var imageSubject = BehaviorSubject<Data?>(value: nil)
-    
-    
     // MARK: - Private Variable(s)
     
     private var event: Event
-    private let apiService = APIService.shared
-    private let bag = DisposeBag()
     
     // MARK: - Init
     
     init(event: Event) {
         self.event = event
-        self.getImageData()
-    }
-    
-    
-    // MARK: - API Request
-    
-    func getImageData() {
-        apiService.getDataFrom(url: event.imageURL)
-            .filter({ $0 != nil })
-            .subscribe(
-                onNext: { (data) in
-                    DispatchQueue.main.async {
-                        self.imageSubject.onNext(data)
-                    }
-            })
-            .disposed(by: bag)
     }
 }
