@@ -25,8 +25,8 @@ class EventImageViewModel {
     init(imageURL: PublishSubject<URL>) {
         imageURL
             .subscribe(
-                onNext: { (url) in
-                    self.getImageData(from: url)
+                onNext: { [weak self] (url) in
+                    self?.getImageData(from: url)
                 })
             .disposed(by: bag)
     }
@@ -37,14 +37,14 @@ class EventImageViewModel {
     func getImageData(from url: URL) {
         APIService.getDataFrom(url: url)
             .subscribe(
-                onNext: { data in
+                onNext: { [weak self] data in
                     DispatchQueue.main.async {
-                        self.imageSubject.onNext(data)
-                        self.imageSubject.onCompleted()
+                        self?.imageSubject.onNext(data)
+                        self?.imageSubject.onCompleted()
                     }
-                }, onError: { (error) in
+                }, onError: { [weak self] (error) in
                     DispatchQueue.main.async {
-                        self.imageSubject.onError(error)
+                        self?.imageSubject.onError(error)
                     }
                 })
             .disposed(by: bag)

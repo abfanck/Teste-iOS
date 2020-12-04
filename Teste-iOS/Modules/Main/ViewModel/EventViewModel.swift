@@ -36,15 +36,15 @@ class EventViewModel {
     func getImageData() {
         APIService.getDataFrom(url: imageURL)
             .subscribe(
-                onNext: { data in
+                onNext: { [weak self] data in
                     DispatchQueue.main.async {
-                        self.imageSubject.onNext(data)
-                        self.imageSubject.onCompleted()
+                        self?.imageSubject.onNext(data)
+                        self?.imageSubject.onCompleted()
                     }
                 },
-                onError: { (error) in
+                onError: { [weak self] (error) in
                     DispatchQueue.main.async {
-                        self.imageSubject.onError(error)
+                        self?.imageSubject.onError(error)
                     }
                 })
             .disposed(by: bag)

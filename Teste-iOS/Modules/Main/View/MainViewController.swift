@@ -53,17 +53,17 @@ class MainViewController: UIViewController {
         
         tableView.rx.modelSelected(Evento.self)
             .subscribe(
-                onNext: { event in
-                    self.coordinator?.showDetailForEvent(withId: event.id, title: event.title)
+                onNext: { [weak self] event in
+                    self?.coordinator?.showDetailForEvent(withId: event.id, title: event.title)
             })
             .disposed(by: bag)
         
         viewModel.isReady
             .subscribe(
-                onNext: { isReady in
+                onNext: { [weak self] isReady in
                     if isReady {
-                        self.indicatorView.stopAnimating()
-                        self.indicatorView.removeFromSuperview()
+                        self?.indicatorView.stopAnimating()
+                        self?.indicatorView.removeFromSuperview()
                     }
                 })
             .disposed(by: bag)

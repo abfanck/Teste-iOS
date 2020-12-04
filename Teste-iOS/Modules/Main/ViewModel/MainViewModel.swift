@@ -30,8 +30,8 @@ class MainViewModel {
         
         eventsObservable
             .subscribe(
-                onCompleted: {
-                    self.isReady.onNext(true)
+                onCompleted: { [weak self] in
+                    self?.isReady.onNext(true)
                 })
             .disposed(by: bag)
     }

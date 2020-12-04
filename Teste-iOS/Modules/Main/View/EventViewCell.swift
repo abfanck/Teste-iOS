@@ -73,18 +73,18 @@ class EventViewCell: UITableViewCell {
         
         viewModel?.imageSubject
             .subscribe(
-                onNext: { data in
+                onNext: { [weak self] data in
                     if let data = data {
-                        self.eventImageView.image = UIImage(data: data)
-                        self.eventImageView.backgroundColor = .clear
+                        self?.eventImageView.image = UIImage(data: data)
+                        self?.eventImageView.backgroundColor = .clear
                     }
                 },
-                onError: { (_) in
-                    self.eventImageView.backgroundColor = .darkGray
+                onError: { [weak self] (_) in
+                    self?.eventImageView.backgroundColor = .darkGray
                 },
-                onDisposed: {
-                    self.indicatorView.stopAnimating()
-                    self.indicatorView.removeFromSuperview()
+                onDisposed: { [weak self] in
+                    self?.indicatorView.stopAnimating()
+                    self?.indicatorView.removeFromSuperview()
                 })
             .disposed(by: bag)
     }

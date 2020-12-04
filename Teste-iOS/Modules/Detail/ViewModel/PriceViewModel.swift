@@ -25,8 +25,8 @@ class PriceViewModel {
     init(price: PublishSubject<Float>) {
         price
             .subscribe(
-                onNext: { (price) in
-                    self.formatPrice(price)
+                onNext: { [weak self] (price) in
+                    self?.formatPrice(price)
                 })
             .disposed(by: bag)
     }

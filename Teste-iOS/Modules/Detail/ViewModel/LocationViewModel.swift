@@ -26,8 +26,8 @@ class LocationViewModel {
     init(coordinates: PublishSubject<(latitude: Float, longitude: Float)>) {
         coordinates
             .subscribe(
-                onNext: { (coordinates) in
-                    self.formatLocation(from: coordinates)
+                onNext: { [weak self] (coordinates) in
+                    self?.formatLocation(from: coordinates)
                 })
             .disposed(by: bag)
     }
@@ -38,14 +38,14 @@ class LocationViewModel {
     private func formatLocation(from coordinates: (latitude: Float, longitude: Float)) {
         self.findLocation(with: coordinates)
             .subscribe(
-                onNext: { placemark in
+                onNext: { [weak self] placemark in
                     
                     let components = [placemark.thoroughfare, placemark.subThoroughfare,
                                       placemark.subLocality, placemark.postalCode, placemark.locality,
                                       placemark.country]
                     
                     let local = components.compactMap({ $0 }).joined(separator: ", ")
-                    self.locationFormatted.onNext(local)
+                    self?.locationFormatted.onNext(local)
                     
                 }).disposed(by: bag)
     }

@@ -42,10 +42,10 @@ class DetailViewController: UIViewController {
     func bindData() {
         viewModel.showAlert
             .subscribe(
-                onNext: { (showAlert) in
+                onNext: { [weak self] (showAlert) in
                     if showAlert {
                         DispatchQueue.main.async {
-                            self.showCheckInAlert()
+                            self?.showCheckInAlert()
                         }
                     }
                 })
@@ -57,21 +57,22 @@ class DetailViewController: UIViewController {
     
     func showCheckInAlert() {
         let alertController = UIAlertController(title: "Confirme sua presença", message: "Quase lá! Informe seus dados:", preferredStyle: .alert)
-        let confirmAction = UIAlertAction(title: "Confirmar", style: .default) { (_) in
+        let confirmAction = UIAlertAction(title: "Confirmar", style: .default) { [weak self] (_) in
             if let nameTxtField = alertController.textFields?[0], let name = nameTxtField.text,
                let emailTxtField = alertController.textFields?[1], let email = emailTxtField.text {
                 
-                let result = self.viewModel.convertToData(name: name, email: email)
-                switch result {
-                case .success(let data):
-                    APIService.saveCheckIn(data) { (error) in
-                        DispatchQueue.main.async {
-                            self.showResultAlert(for: error)
+                if let result = self?.viewModel.convertToData(name: name, email: email) {
+                    switch result {
+                    case .success(let data):
+                        APIService.saveCheckIn(data) { (error) in
+                            DispatchQueue.main.async {
+                                self?.showResultAlert(for: error)
+                            }
                         }
-                    }
-                case .failure(let error):
-                    DispatchQueue.main.async {
-                        self.showResultAlert(for: error)
+                    case .failure(let error):
+                        DispatchQueue.main.async {
+                            self?.showResultAlert(for: error)
+                        }
                     }
                 }
             }

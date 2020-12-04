@@ -37,17 +37,17 @@ class DetailViewModel {
     // MARK: - API Request
     
     func getEvent(with id: String)  {
-        APIService.getEvent(with: id) { (result) in
+        APIService.getEvent(with: id) { [weak self] (result) in
             switch result {
             case .success(let event):
-                self.date.onNext(event.date)
-                self.description.onNext(event.description)
-                self.imageURL.onNext(event.imageURL)
-                self.coordinates.onNext((latitude: event.latitude, longitude: event.longitude))
-                self.price.onNext(event.price)
-                self.eventDescription = event.description
-                self.eventId = event.id
-                self.eventTitle = event.title
+                self?.date.onNext(event.date)
+                self?.description.onNext(event.description)
+                self?.imageURL.onNext(event.imageURL)
+                self?.coordinates.onNext((latitude: event.latitude, longitude: event.longitude))
+                self?.price.onNext(event.price)
+                self?.eventDescription = event.description
+                self?.eventId = event.id
+                self?.eventTitle = event.title
             case .failure(let error):
                 print(error)
             }

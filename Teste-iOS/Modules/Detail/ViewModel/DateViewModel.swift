@@ -26,9 +26,9 @@ class DateViewModel {
     init(date: PublishSubject<Date>) {
         date
             .subscribe(
-                onNext: { (date) in
-                    self.formatDay(from: date)
-                    self.formatTime(from: date)
+                onNext: { [weak self] (date) in
+                    self?.formatDay(from: date)
+                    self?.formatTime(from: date)
                 })
             .disposed(by: bag)
     }

@@ -49,15 +49,15 @@ class EventImageView: UIView {
     func bindData() {
         viewModel.imageSubject
             .subscribe(
-                onNext: { (data) in
+                onNext: { [weak self] (data) in
                     if let data = data {
-                        self.imageView.image = UIImage(data: data)
+                        self?.imageView.image = UIImage(data: data)
                     }
-                }, onError: { (_) in
-                    self.imageView.backgroundColor = .darkGray
-                }, onDisposed: {
-                    self.indicatorView.stopAnimating()
-                    self.indicatorView.removeFromSuperview()
+                }, onError: { [weak self] (_) in
+                    self?.imageView.backgroundColor = .darkGray
+                }, onDisposed: { [weak self] in
+                    self?.indicatorView.stopAnimating()
+                    self?.indicatorView.removeFromSuperview()
                 })
             .disposed(by: bag)
     }
